@@ -55,7 +55,7 @@ Every team starts off with a manager. We need someone to take care of them when 
 
 ### Progression 2: Plan of Action
 
-The coach has prepared a plan of action for the team. He has the formation ready and will provide us with an array `[forwards, midfielders, defenders]`. He will give us the numbers and we'll need to print that layout on our screen so that we know who to pick (for instance, how many midfielders do we need?). Create a function `createFormation()` that _returns an object_ with the data and keys in the order given in the array.
+The coach has prepared a plan of action for the team. He has the formation ready and will provide us with an array `[defender, midfield, forward]`. He will give us the numbers and we'll need to print that layout on our screen so that we know who to pick (for instance, how many midfielders do we need?). Create a function `createFormation()` that _returns an object_ with the data and keys in the order given in the array.
 
 ### Progression 3: Twinkle Twinkle, football star!
 
