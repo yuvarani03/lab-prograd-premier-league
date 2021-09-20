@@ -5,7 +5,10 @@ let currentTeam = "Manchester FC";
 let trophiesWon = 27;
 
 //Write your function here
-
+let createManager =(managerName, managerAge, currentTeam, trophiesWon) => {
+  let manager = [managerName,managerAge,currentTeam,trophiesWon];
+  return manager;
+}
 // Don't edit the following code
 try {
   var manager = createManager(
@@ -22,6 +25,15 @@ try {
 var formation = [4, 4, 3];
 
 //write your function here
+let createFormation = (formation) => {
+  if(formation.length == 0){
+  return null;
+  }
+  else{
+    return { defender: formation[0], midfield: formation[1], forward: formation[2] };
+  }
+
+}
 
 // Dont edit the following code
 
@@ -32,22 +44,80 @@ try {
 }
 
 //Progression 3 - Filter players that debuted in ___ year
+let filterByDebut = (year) =>{
+  let filter = [];
+  for(var i=0; i<players.length;i++)
+  {
+    if(players[i].debut == year){
+      filter.push(players[i]);
+    }
+  }
+  return filter;
+}
 
 //Progression 4 - Filter players that play at the position _______
+let filterByPosition = (position) =>{
+  let filter = [];
+  for(var i=0; i<players.length;i++)
+  {
+    if(players[i].position == position){
+      filter.push(players[i]);
+    }
+  }
+  return filter;
+}
 
 //Progression 5 - Filter players that have won ______ award
+let filterByAward = (awardName) =>
+{
+  let filter = [];
+  for (let i = 0; i < players.length; i++) {
+    for (let j = 0; j < players[i].awards.length; j++) {
+      if (players[i].awards[j].name == awardName) {
+        filter.push(players[i]);
+      }
+    }
+  }
+  return filter;
+}
+
 
 //Progression 6 - Filter players that won ______ award ____ times
+let filterByAwardxTimes = (awardName, noOfTimes) =>{
+  let filter=[];
+  for( let i=0;i<players.length;i++){
+    let count = 0;
+      for(let j=0;j<players[i].awards.length;j++){
+        if(players[i].awards[j].name ==awardName){
+         count++;
+        }
+      }  
+        if(count==noOfTimes)
+        filter.push(players[i]);
+    }  
+    return filter ;
+}
 
 //Progression 7 - Filter players that won ______ award and belong to ______ country
+let filterByAwardxCountry = (awardName, country) => {
+let filter = [];
+  for (let i = 0; i < players.length; i++) {
+    for (let j = 0; j < players[i].awards.length; j++) {
+      if (players[i].awards[j].name == awardName && players[i].country == country) {
+        filter.push(players[i])
+      }
+    }
+  }
+  return filter;
+}
 
 //Progression 8 - Filter players that won atleast ______ awards, belong to ______ team and are younger than ____
-
-//Progression 9 - Sort players in descending order of their age
-
-//Progression 10 - Sort players beloging to _____ team in descending order of awards won
-
-//Challenge 1 - Sort players that have won _______ award _____ times and belong to _______ country in alphabetical order of their names
-
-//Challenge 2 - Sort players that are older than _____ years in alphabetical order
-//Sort the awards won by them in reverse chronological order
+let filterByNoOfAwardsxTeamxAge = (noOfAwards, team, age) =>{
+  var filter = [];
+  for (var i= 0; i < players.length; i++) {
+    if (players[i].awards.length >= noOfAwards && players[i].team == team && players[i].age < age) {
+      filter.push(players[i])
+    }
+  }
+  return filter;
+}
